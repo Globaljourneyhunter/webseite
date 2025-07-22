@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Team Globaljourneyhunter Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Anton', sans-serif;
+      background: linear-gradient(to bottom, #d4cece, #0a767a);
+      min-height: 100vh;
+      box-sizing: border-box;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      color: white;
+    }
+
+    header {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 88px;
+      color: #f37021;
+      font-size: 60px;
+      line-height: 1.1;
+    }
+
+    header .team {
+      display: block;
+      font-size: 100px;
+      margin-top: 0;
+      line-height: 1.1;
+    }
+
+    main {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      flex-grow: 1;
+      margin-top: 40px;
+      align-items: flex-start;
+    }
+
+    .left, .right {
+      width: 40%;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      margin-left: 64px;
+      margin-top: -62px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .left p:first-child {
+      font-weight: bold;
+      font-size: 26px;
+    }
+
+    .ready-logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .ready-logo p {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .ready-logo img {
+      max-width: 325px;
+      height: auto;
+    }
+
+    .right {
+      background: white;
+      color: black;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-right: 32px;
+      margin-top: -60px;
+    }
+
+    .right h2 {
+      font-size: 48px;
+      color: #0a767a;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: 'Anton', sans-serif;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0a767a;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+      font-family: 'Anton', sans-serif;
+    }
+
+    button:hover {
+      background-color: #095c5d;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+      }
+      .left, .right {
+        width: 90%;
+        margin: 0 0 30px 0;
+      }
+      header {
+        font-size: 36px;
+      }
+      header .team {
+        font-size: 60px;
+      }
+      .right h2 {
+        font-size: 36px;
+      }
+      .ready-logo {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Willkommen im
+    <span class="team">Team Globaljourneyhunter</span>
+  </header>
+
+  <main>
+    <div class="left">
+      <p>Willkommen bei deinem Meilen-Boost!</p>
+      <p>Hier lernst du, wie du mit all deinen Ausgaben – ob Einkaufen, Tanken, Miete oder Reisen – richtig Meilen sammelst. Einfach, clever und effektiv. Ich zeige dir, wie du jedes Mal das Maximum rausholst.</p>
+      <p>Lass uns gemeinsam dein Meilenkonto explodieren lassen!<br/>
+      Logg dich jetzt ein und starte deine Reise zu Mehr Meilen, Punkten, günstigerem und luxeriöserem Reisen.</p>
+
+      <div class="ready-logo">
+        <p><strong>Ready? Los geht’s!</strong></p>
+        <img src="logo.png" alt="Globaljourneyhunter Logo" />
+      </div>
+    </div>
+
+    <div class="right">
+      <h2>Login</h2>
+      <form id="login-form">
+        <input type="email" id="email" placeholder="E-Mail" required />
+        <input type="password" id="password" placeholder="Passwort" required />
+        <button type="submit">Einloggen</button>
+      </form>
+      <p id="error-message" class="error"></p>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = 'https://jerlamdfuqxydtekomxy.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImplcmxhbWRmdXF4eWR0ZWtvbXh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEzNDE3ODAsImV4cCI6MjA2NjkxNzc4MH0.dpGBDwWNS1fCsjBRubCw2t7lHUeWfETDmD-RMrsTP4I';
+
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const errorMessage = document.getElementById('error-message');
+
+      const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email,
+        password
+      });
+
+      if (error) {
+        errorMessage.textContent = "Fehler beim Login: " + error.message;
+      } else {
+        window.location.href = "index.html";
+      }
+    });
+  </script>
+</body>
+</html>
