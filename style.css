@@ -7,15 +7,10 @@ html, body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(to bottom, #d4cece, #0a767a);
   color: white;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
   flex-direction: row;
-  height: 100%;
-  overflow: auto;
-}
-
-body.index-page {
-  height: 100vh;
-  overflow: hidden; /* auf Desktop */
 }
 
 /* === SIDEBAR === */
@@ -83,20 +78,31 @@ body.index-page {
   border-color: #f37021;
 }
 
-/* === CONTENT === */
-.content {
+/* === CONTENT WRAPPER === */
+.content-wrapper {
   flex-grow: 1;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   overflow: hidden;
-  padding: 0 40px;
+}
+
+.content {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  text-align: center;
 }
 
 .centered-content {
   max-width: 800px;
-  text-align: center;
+  margin: 0 auto;
 }
 
 .profile-image {
@@ -119,32 +125,27 @@ body.index-page {
   font-family: 'Anton', sans-serif;
   font-size: 42px;
   color: white;
-  margin: 0 0 5px;
+  margin: 0 0 15px;
 }
 
 .text-section {
   font-size: 16px;
   line-height: 1.5;
   color: white;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .text-section p {
   margin: 4px 0;
 }
 
-.text-section h2, h3, h4 {
-  margin-top: 30px;
-}
-
-/* === GUIDE-BOXES === */
+/* === GUIDE BOXES === */
 .guide-boxes {
   display: grid;
   grid-template-columns: repeat(3, 250px);
   column-gap: 75px;
   row-gap: 35px;
   justify-content: center;
-  margin: 0 auto;
 }
 
 .guide-box {
@@ -186,13 +187,15 @@ body.index-page {
 @media (max-width: 768px) {
   html, body {
     flex-direction: column;
-    height: auto;
+    overflow-x: hidden;
     overflow-y: auto;
+    height: auto;
   }
 
-  body.index-page {
+  .content-wrapper {
     height: auto;
     overflow-y: auto;
+    padding-top: 70px;
   }
 
   #hamburger-button {
@@ -222,14 +225,13 @@ body.index-page {
   }
 
   .content {
-    height: auto;
     padding: 20px 10px;
     align-items: center;
   }
 
   .centered-content {
     padding: 0 10px;
-    margin-top: 30px;
+    margin-top: 20px;
   }
 
   .profile-image {
@@ -237,24 +239,19 @@ body.index-page {
     height: 120px;
   }
 
-  .headline-orange, .headline-white {
+  .headline-orange,
+  .headline-white {
     font-size: 26px;
   }
 
   .guide-boxes {
     display: flex;
     flex-direction: column;
+    gap: 20px;
   }
 
-  .guide-boxes .guide-box {
+  .guide-box {
     font-size: 18px;
     padding: 10px;
   }
-
-  .guide-boxes .guide-box[data-order-mobile="1"] { order: 1; }
-  .guide-boxes .guide-box[data-order-mobile="2"] { order: 2; }
-  .guide-boxes .guide-box[data-order-mobile="3"] { order: 3; }
-  .guide-boxes .guide-box[data-order-mobile="4"] { order: 4; }
-  .guide-boxes .guide-box[data-order-mobile="5"] { order: 5; }
-  .guide-boxes .guide-box[data-order-mobile="6"] { order: 6; }
 }
