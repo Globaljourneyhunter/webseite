@@ -7,36 +7,51 @@
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 </head>
+
 <body class="index-page">
+  <!-- Hamburger-Menü für Mobile -->
   <button id="hamburger-button">☰</button>
 
-  <!-- Sidebar wird hier dynamisch geladen -->
+  <!-- Sidebar (dynamisch geladen per JS) -->
   <div id="sidebar-placeholder"></div>
 
-  <div class="content">
-    <div class="centered-content">
-      <img src="profilbild.jpg" alt="Profilbild" class="profile-image" />
+  <!-- Hauptbereich -->
+  <main class="content-wrapper">
+    <div class="content">
+      <div class="centered-content">
+        <img src="profilbild.jpg" alt="Profilbild" class="profile-image" />
 
-      <h1 class="headline-orange">WILLKOMMEN IM TEAM</h1>
-      <h1 class="headline-white">GLOBAL JOURNEY HUNTER</h1>
+        <h1 class="headline-orange">WILLKOMMEN IM TEAM</h1>
+        <h1 class="headline-white">GLOBAL JOURNEY HUNTER</h1>
 
-      <div class="text-section">
-        <p>Einkaufen mit Verstand:</p>
-        <p>Geld sparen war noch nie so einfach!</p>
-        <p>Businessclass fliegen & weniger als Eco bezahlen!</p>
+        <div class="text-section">
+          <p>Einkaufen mit Verstand:</p>
+          <p>Geld sparen war noch nie so einfach!</p>
+          <p>Businessclass fliegen & weniger als Eco bezahlen!</p>
+        </div>
+
+        <div class="guide-boxes">
+          <a href="MINI-Meilenguide.html" class="guide-box" data-order-mobile="1">
+            <span class="box-title">GRATIS</span><br>Mini-Meilenguide
+          </a>
+          <a href="https://copecart.com/products/e24ca31f/checkout" class="guide-box" target="_blank" data-order-mobile="2">
+            <span class="box-title">DER</span><br>Paybackguide
+          </a>
+          <a href="https://copecart.com/products/d2c57f01/checkout" class="guide-box" target="_blank" data-order-mobile="3">
+            <span class="box-title">DER</span><br>Cashbackguide
+          </a>
+          <a href="der-meilenguide.html" class="guide-box" data-order-mobile="4">
+            <span class="box-title">DER</span><br>Meilenguide
+          </a>
+          <a href="https://linktr.ee/globaljourneyhunter" class="guide-box tools" target="_blank" data-order-mobile="5">
+            <div class="manual-offset">Tools</div>
+          </a>
+          <a href="cheatsheet.html" class="guide-box cheatsheet" data-order-mobile="6">
+            <div class="manual-offset">Cheatsheet</div>
+          </a>
+        </div>
       </div>
-
-      <div class="guide-boxes">
-        <a href="MINI-Meilenguide.html" class="guide-box" data-order-mobile="1">
-          <span class="box-title">GRATIS</span><br>Mini-Meilenguide
-        </a>
-        <a href="https://copecart.com/products/e24ca31f/checkout" class="guide-box" target="_blank" data-order-mobile="2">
-          <span class="box-title">DER</span><br>Paybackguide
-        </a>
-        <a href="https://copecart.com/products/d2c57f01/checkout" class="guide-box" target="_blank" data-order-mobile="3">
-          <span class="box-title">DER</span><br>Cashbackguide
-        </a>
-        <a href="der-meilenguide.html" class="guide-box" data-order-mobile="4">
-          <span class="box-title">DER</span><br>Meilenguide
-        </a>
-        <a href="https://linktr.ee/globaljourneyhunter" class="guide-box tools" target="_blank" data-order_
+    </div>
+  </main>
+</body>
+</html>
