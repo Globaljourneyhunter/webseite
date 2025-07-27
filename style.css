@@ -78,34 +78,22 @@ html, body {
   border-color: #f37021;
 }
 
-/* === CONTENT WRAPPER === */
-.content-wrapper {
-  flex-grow: 1;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
+/* === CONTENT === */
 .content {
-  max-width: 1000px;
-  width: 100%;
-  padding: 20px;
+  flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  text-align: center;
+  height: 100vh;
   overflow: hidden;
 }
 
 .centered-content {
   max-width: 800px;
-  margin: 0 auto;
+  width: 100%;
+  text-align: center;
 }
 
-/* === PROFILE === */
 .profile-image {
   width: 200px;
   height: 200px;
@@ -115,7 +103,6 @@ html, body {
   margin: 0 auto 20px auto;
 }
 
-/* === HEADLINES === */
 .headline-orange {
   font-family: 'Anton', sans-serif;
   font-size: 50px;
@@ -130,7 +117,6 @@ html, body {
   margin: 0 0 15px;
 }
 
-/* === TEXT SECTION === */
 .text-section {
   font-size: 16px;
   line-height: 1.5;
@@ -149,6 +135,7 @@ html, body {
   column-gap: 75px;
   row-gap: 35px;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .guide-box {
@@ -195,13 +182,6 @@ html, body {
     height: auto;
   }
 
-  .content-wrapper {
-    height: auto;
-    overflow-y: auto;
-    padding-top: 70px;
-    display: block;
-  }
-
   #hamburger-button {
     display: block;
   }
@@ -231,6 +211,7 @@ html, body {
   .content {
     padding: 20px 10px;
     align-items: center;
+    height: auto;
   }
 
   .centered-content {
