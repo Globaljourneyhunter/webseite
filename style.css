@@ -7,14 +7,15 @@ html, body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(to bottom, #d4cece, #0a767a);
   color: white;
-  height: 100vh;
-  overflow: hidden;
   display: flex;
   flex-direction: row;
+  height: 100%;
+  overflow: auto;
 }
 
 body.index-page {
-  overflow: hidden;
+  height: 100vh;
+  overflow: hidden; /* auf Desktop */
 }
 
 /* === SIDEBAR === */
@@ -85,11 +86,12 @@ body.index-page {
 /* === CONTENT === */
 .content {
   flex-grow: 1;
-  height: 100vh;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  padding: 0 40px;
 }
 
 .centered-content {
@@ -103,7 +105,7 @@ body.index-page {
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid #016266;
-  margin: 0 auto 20px;
+  margin: 0 auto 20px auto;
 }
 
 .headline-orange {
@@ -131,12 +133,18 @@ body.index-page {
   margin: 4px 0;
 }
 
+.text-section h2, h3, h4 {
+  margin-top: 30px;
+}
+
+/* === GUIDE-BOXES === */
 .guide-boxes {
   display: grid;
   grid-template-columns: repeat(3, 250px);
-  gap: 30px;
+  column-gap: 75px;
+  row-gap: 35px;
   justify-content: center;
-  margin-top: 20px;
+  margin: 0 auto;
 }
 
 .guide-box {
@@ -174,13 +182,17 @@ body.index-page {
   cursor: pointer;
 }
 
-/* === MOBILE RESPONSIVE === */
+/* === RESPONSIVE (MOBILE) === */
 @media (max-width: 768px) {
   html, body {
     flex-direction: column;
-    overflow-x: hidden;
-    overflow-y: auto;
     height: auto;
+    overflow-y: auto;
+  }
+
+  body.index-page {
+    height: auto;
+    overflow-y: auto;
   }
 
   #hamburger-button {
@@ -193,9 +205,11 @@ body.index-page {
     top: 60px;
     left: 0;
     width: 100%;
+    height: auto;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.95);
     padding: 20px;
+    z-index: 1000;
     border-bottom: 2px solid #f37021;
   }
 
@@ -208,9 +222,9 @@ body.index-page {
   }
 
   .content {
+    height: auto;
     padding: 20px 10px;
     align-items: center;
-    height: auto;
   }
 
   .centered-content {
@@ -230,11 +244,17 @@ body.index-page {
   .guide-boxes {
     display: flex;
     flex-direction: column;
-    gap: 15px;
   }
 
   .guide-boxes .guide-box {
     font-size: 18px;
     padding: 10px;
   }
+
+  .guide-boxes .guide-box[data-order-mobile="1"] { order: 1; }
+  .guide-boxes .guide-box[data-order-mobile="2"] { order: 2; }
+  .guide-boxes .guide-box[data-order-mobile="3"] { order: 3; }
+  .guide-boxes .guide-box[data-order-mobile="4"] { order: 4; }
+  .guide-boxes .guide-box[data-order-mobile="5"] { order: 5; }
+  .guide-boxes .guide-box[data-order-mobile="6"] { order: 6; }
 }
