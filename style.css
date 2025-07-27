@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500&display=swap');
 
+/* === GLOBAL === */
 html, body {
   margin: 0;
   padding: 0;
@@ -7,11 +8,7 @@ html, body {
   background: linear-gradient(to bottom, #d4cece, #0a767a);
   color: white;
   display: flex;
-  min-height: 100%;
-}
-
-body {
-  flex-grow: 1;
+  min-height: 100vh;
   flex-direction: row;
 }
 
@@ -20,7 +17,7 @@ body.index-page {
   height: 100vh;
 }
 
-/* Sidebar */
+/* === SIDEBAR === */
 .sidebar {
   width: 250px;
   background-color: rgba(255, 255, 255, 0.2);
@@ -33,6 +30,7 @@ body.index-page {
   height: 100vh;
   position: sticky;
   top: 0;
+  z-index: 100;
 }
 
 .logo-container {
@@ -84,7 +82,7 @@ body.index-page {
   border-color: #f37021;
 }
 
-/* Content */
+/* === CONTENT === */
 .content {
   flex-grow: 1;
   padding: 30px 40px;
@@ -135,59 +133,11 @@ body.index-page {
   margin: 4px 0;
 }
 
-.text-section h2,
-.text-section h3,
-.text-section h4 {
+.text-section h2, h3, h4 {
   margin-top: 30px;
 }
 
-/* Impressum */
-body.impressum-page .text-section strong {
-  display: block;
-  margin-top: 30px;
-}
-
-body.impressum-page .text-section p {
-  margin: 8px 0;
-}
-
-/* Datenschutz */
-body.datenschutz-page {
-  display: flex;
-  min-height: 100vh;
-}
-
-body.datenschutz-page .sidebar {
-  height: 100vh;
-}
-
-body.datenschutz-page .content {
-  flex-grow: 1;
-  padding: 40px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-body.datenschutz-page .centered-content {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-body.datenschutz-page .text-section h2,
-body.datenschutz-page .text-section h3,
-body.datenschutz-page .text-section h4 {
-  margin-top: 30px;
-}
-
-body.datenschutz-page .text-section p,
-body.datenschutz-page .text-section ul {
-  margin: 8px 0;
-}
-
-/* Guide-Boxen */
+/* === GUIDE-BOXES === */
 .guide-boxes {
   display: grid;
   grid-template-columns: repeat(3, 250px);
@@ -211,41 +161,12 @@ body.datenschutz-page .text-section ul {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.guide-box.cheatsheet .manual-offset,
-.guide-box.tools .manual-offset {
-  margin-top: 15px;
-}
-
 .guide-box:hover {
   background-color: #f37021;
   color: white;
 }
 
-.guide-box.tools {
-  text-decoration: none;
-}
-
-.guide-box.tools:hover {
-  text-decoration: none;
-}
-
-/* Cheatsheet */
-.cheatsheet-image {
-  width: 1400px;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  border: 3px solid white;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-}
-
-body.cheatsheet-page .centered-content {
-  text-align: center;
-}
-
-/* Download-Button */
+/* === DOWNLOAD BUTTON === */
 .download-button {
   display: inline-block;
   background-color: #f37021;
@@ -267,93 +188,13 @@ body.cheatsheet-page .centered-content {
   background-color: #d95e12;
 }
 
-body.mini-guide-page .text-section {
-  text-align: left;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* Responsive: Smartphones und Tablets */
-@media (max-width: 768px) {
-  html, body {
-    flex-direction: column;
-    overflow-x: hidden;
-  }
-
-  .sidebar {
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 2px solid #f37021;
-    position: static;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px;
-  }
-
-  .sidebar-logo {
-    width: 140px;
-    margin-bottom: 10px;
-  }
-
-  .sidebar ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-  }
-
-  .sidebar li {
-    margin: 5px;
-    list-style: none;
-  }
-
-  .sidebar li a {
-    font-size: 14px;
-    padding: 8px 10px;
-  }
-
-  .content {
-    padding: 20px 10px;
-    align-items: center;
-  }
-
-  .centered-content {
-    text-align: center;
-    padding: 0 10px;
-  }
-
-  .headline-orange, .headline-white {
-    font-size: 26px;
-  }
-
-  .profile-image {
-    width: 120px;
-    height: 120px;
-  }
-
-  .guide-boxes {
-    grid-template-columns: 1fr;
-    column-gap: 15px;
-    row-gap: 20px;
-    padding: 0 10px;
-    margin-top: 20px;
-  }
-
-  .guide-box {
-    font-size: 18px;
-    padding: 10px;
-  }
-}
-/* Hamburger Button für Mobilgeräte */
+/* === HAMBURGER BUTTON === */
 #hamburger-button {
   display: none;
   position: fixed;
   top: 10px;
   left: 10px;
-  z-index: 1000;
+  z-index: 1100;
   font-size: 30px;
   background-color: #f37021;
   color: white;
@@ -363,83 +204,71 @@ body.mini-guide-page .text-section {
   cursor: pointer;
 }
 
-/* Sidebar Toggle für Mobilgeräte */
+/* === RESPONSIVE (max-width: 768px) === */
 @media (max-width: 768px) {
+  html, body {
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
   #hamburger-button {
     display: block;
   }
 
   .sidebar {
     display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
     width: 100%;
     height: auto;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.95);
-    position: absolute;
-    top: 50px;
-    left: 0;
-    z-index: 999;
     padding: 20px;
-    border-bottom: 2px solid #f37021;
-  }
-
-  .sidebar.open {
-    display: flex;
-  }
-
-  .sidebar li {
-    display: block;
-    margin: 10px 0;
-  }
-
-  .sidebar li a {
-    font-size: 18px;
-  }
-}
-@media (max-width: 768px) {
-  #hamburger-button {
-    display: block;
-  }
-
-  /* Wichtig: Sidebar ist standardmäßig ausgeblendet! */
-  .sidebar {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.95);
-    position: absolute;
-    top: 60px;
-    left: 0;
-    z-index: 999;
-    padding: 20px;
-    border-bottom: 2px solid #f37021;
-  }
-
-  .sidebar.open {
-    display: flex;
-  }
-
-  .sidebar li {
-    display: block;
-    margin: 10px 0;
-  }
-
-  .sidebar li a {
-    font-size: 18px;
-  }
-
-  /* Optional: Button Styling */
-  #hamburger-button {
-    position: fixed;
-    top: 10px;
-    left: 10px;
     z-index: 1000;
-    font-size: 30px;
-    background-color: #f37021;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    padding: 8px 12px;
-    cursor: pointer;
+    border-bottom: 2px solid #f37021;
+  }
+
+  .sidebar.open {
+    display: flex;
+  }
+
+  .sidebar li {
+    margin: 10px 0;
+  }
+
+  .sidebar li a {
+    font-size: 18px;
+    color: #0a767a;
+  }
+
+  .content {
+    padding: 20px 10px;
+    align-items: center;
+  }
+
+  .centered-content {
+    padding: 0 10px;
+  }
+
+  .guide-boxes {
+    grid-template-columns: 1fr;
+    column-gap: 15px;
+    row-gap: 20px;
+    margin-top: 20px;
+  }
+
+  .guide-box {
+    font-size: 18px;
+    padding: 10px;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .headline-orange, .headline-white {
+    font-size: 26px;
   }
 }
