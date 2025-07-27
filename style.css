@@ -396,3 +396,50 @@ body.mini-guide-page .text-section {
     font-size: 18px;
   }
 }
+@media (max-width: 768px) {
+  #hamburger-button {
+    display: block;
+  }
+
+  /* Wichtig: Sidebar ist standardmäßig ausgeblendet! */
+  .sidebar {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 999;
+    padding: 20px;
+    border-bottom: 2px solid #f37021;
+  }
+
+  .sidebar.open {
+    display: flex;
+  }
+
+  .sidebar li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .sidebar li a {
+    font-size: 18px;
+  }
+
+  /* Optional: Button Styling */
+  #hamburger-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    font-size: 30px;
+    background-color: #f37021;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+}
