@@ -328,3 +328,71 @@ body.mini-guide-page .text-section {
     height: 140px;
   }
 }
+@media (max-width: 768px) {
+  /* Sidebar: unter dem Inhalt anzeigen, volle Breite */
+  .sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 2px solid #f37021;
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .sidebar-logo {
+    width: 140px;
+    margin-bottom: 10px;
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar li {
+    margin: 5px;
+    list-style: none;
+  }
+
+  .sidebar li a {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+
+  /* Inhalt enger machen */
+  .content {
+    padding: 20px 10px;
+    align-items: center;
+  }
+
+  .centered-content {
+    text-align: center;
+  }
+
+  .headline-orange, .headline-white {
+    font-size: 26px;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* Guide-Boxen: eine Spalte */
+  .guide-boxes {
+    grid-template-columns: 1fr;
+    column-gap: 15px;
+    row-gap: 20px;
+  }
+
+  .guide-box {
+    font-size: 18px;
+    padding: 10px;
+  }
+}
