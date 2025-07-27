@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function loadSidebar() {
   try {
-    const res = await fetch("/sidebar.html");
+    const res = await fetch("sidebar.html"); // ✅ Pfad korrigiert
     const html = await res.text();
     const sidebarPlaceholder = document.getElementById("sidebar-placeholder");
 
