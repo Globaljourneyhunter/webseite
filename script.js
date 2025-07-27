@@ -8,10 +8,10 @@ async function loadSidebar() {
     const html = await res.text();
     const sidebarPlaceholder = document.getElementById("sidebar-placeholder");
 
-    if (sidebarPlaceholder) {
+    if (sidebarPlaceholder && !sidebarPlaceholder.innerHTML.trim()) {
       sidebarPlaceholder.innerHTML = html;
       highlightCurrentLink();
-      setupHamburger(); // <-- Button erst NACHDEM Sidebar geladen ist
+      setupHamburger();
     }
   } catch (error) {
     console.error("Sidebar konnte nicht geladen werden:", error);
