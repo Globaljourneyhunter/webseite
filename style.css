@@ -13,8 +13,8 @@ html, body {
 }
 
 body.index-page {
-  overflow: hidden;
-  height: 100vh;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* === SIDEBAR === */
@@ -95,7 +95,7 @@ body.index-page {
 
 .centered-content {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 20px auto 0 auto; /* Abstand oben hinzugefügt */
   text-align: center;
 }
 
