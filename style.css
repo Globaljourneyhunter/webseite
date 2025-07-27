@@ -272,3 +272,33 @@ body.index-page {
     font-size: 26px;
   }
 }
+@media (max-width: 768px) {
+  .guide-boxes {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .guide-boxes .guide-box {
+    order: initial;
+  }
+
+  .guide-boxes .guide-box[data-order-mobile="1"] { order: 1; }
+  .guide-boxes .guide-box[data-order-mobile="2"] { order: 2; }
+  .guide-boxes .guide-box[data-order-mobile="3"] { order: 3; }
+  .guide-boxes .guide-box[data-order-mobile="4"] { order: 4; }
+  .guide-boxes .guide-box[data-order-mobile="5"] { order: 5; }
+  .guide-boxes .guide-box[data-order-mobile="6"] { order: 6; }
+
+  .centered-content {
+    margin-top: 30px;
+  }
+
+  .content {
+    overflow-y: visible; /* Wichtig für Scrollbarkeit */
+  }
+
+  body.index-page {
+    overflow-y: auto;
+    height: auto;
+  }
+}
