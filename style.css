@@ -7,14 +7,14 @@ html, body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(to bottom, #d4cece, #0a767a);
   color: white;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
-  min-height: 100vh;
   flex-direction: row;
 }
 
 body.index-page {
-  overflow-x: hidden;
-  min-height: 100vh;
+  overflow: hidden;
 }
 
 /* === SIDEBAR === */
@@ -85,17 +85,15 @@ body.index-page {
 /* === CONTENT === */
 .content {
   flex-grow: 1;
-  padding: 30px 40px;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  overflow-y: auto;
+  align-items: center;
 }
 
 .centered-content {
   max-width: 800px;
-  margin: 20px auto 0 auto;
   text-align: center;
 }
 
@@ -105,7 +103,7 @@ body.index-page {
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid #016266;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 20px;
 }
 
 .headline-orange {
@@ -133,18 +131,12 @@ body.index-page {
   margin: 4px 0;
 }
 
-.text-section h2, h3, h4 {
-  margin-top: 30px;
-}
-
-/* === GUIDE-BOXES === */
 .guide-boxes {
   display: grid;
   grid-template-columns: repeat(3, 250px);
-  column-gap: 75px;
-  row-gap: 35px;
+  gap: 30px;
   justify-content: center;
-  margin: 0 auto;
+  margin-top: 20px;
 }
 
 .guide-box {
@@ -182,14 +174,11 @@ body.index-page {
   cursor: pointer;
 }
 
-/* === RESPONSIVE (MOBILE) === */
+/* === MOBILE RESPONSIVE === */
 @media (max-width: 768px) {
   html, body {
     flex-direction: column;
     overflow-x: hidden;
-  }
-
-  body.index-page {
     overflow-y: auto;
     height: auto;
   }
@@ -204,11 +193,9 @@ body.index-page {
     top: 60px;
     left: 0;
     width: 100%;
-    height: auto;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.95);
     padding: 20px;
-    z-index: 1000;
     border-bottom: 2px solid #f37021;
   }
 
@@ -223,6 +210,7 @@ body.index-page {
   .content {
     padding: 20px 10px;
     align-items: center;
+    height: auto;
   }
 
   .centered-content {
@@ -242,17 +230,11 @@ body.index-page {
   .guide-boxes {
     display: flex;
     flex-direction: column;
+    gap: 15px;
   }
 
   .guide-boxes .guide-box {
     font-size: 18px;
     padding: 10px;
   }
-
-  .guide-boxes .guide-box[data-order-mobile="1"] { order: 1; }
-  .guide-boxes .guide-box[data-order-mobile="2"] { order: 2; }
-  .guide-boxes .guide-box[data-order-mobile="3"] { order: 3; }
-  .guide-boxes .guide-box[data-order-mobile="4"] { order: 4; }
-  .guide-boxes .guide-box[data-order-mobile="5"] { order: 5; }
-  .guide-boxes .guide-box[data-order-mobile="6"] { order: 6; }
 }
