@@ -1,32 +1,309 @@
-document.addEventListener("DOMContentLoaded", async () => {
-  await loadSidebar();
-});
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500&display=swap');
 
-async function loadSidebar() {
-  try {
-    const res = await fetch("sidebar.html");
-    const html = await res.text();
-    const sidebarPlaceholder = document.getElementById("sidebar-placeholder");
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #d4cece, #0a767a);
+  color: white;
+  display: flex;
+  min-height: 100%;
+}
 
-    if (sidebarPlaceholder) {
-      sidebarPlaceholder.innerHTML = html;
-      highlightCurrentLink();
-    }
-  } catch (error) {
-    console.error("Sidebar konnte nicht geladen werden:", error);
+body {
+  flex-grow: 1;
+  flex-direction: row;
+}
+
+body.index-page {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  box-sizing: border-box;
+  border-right: 2px solid #f37021;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.sidebar-logo {
+  width: 220px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.sidebar li {
+  margin: 10px 0;
+}
+
+.sidebar li a {
+  font-family: 'Anton', sans-serif;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  padding: 14px 12px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.sidebar li a:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #0a767a;
+}
+
+.sidebar li a.active {
+  background-color: #f37021;
+  color: white;
+  border-color: #f37021;
+}
+
+/* Content */
+.content {
+  flex-grow: 1;
+  padding: 30px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.centered-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #016266;
+  margin: 0 auto;
+}
+
+.headline-orange {
+  font-family: 'Anton', sans-serif;
+  font-size: 50px;
+  color: #f37021;
+  margin: 0;
+}
+
+.headline-white {
+  font-family: 'Anton', sans-serif;
+  font-size: 42px;
+  color: white;
+  margin: 0 0 5px;
+}
+
+.text-section {
+  font-size: 16px;
+  line-height: 1.5;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.text-section p {
+  margin: 4px 0;
+}
+
+.text-section h2,
+.text-section h3,
+.text-section h4 {
+  margin-top: 30px;
+}
+
+/* Impressum */
+body.impressum-page .text-section strong {
+  display: block;
+  margin-top: 30px;
+}
+
+body.impressum-page .text-section p {
+  margin: 8px 0;
+}
+
+/* Datenschutz */
+body.datenschutz-page {
+  display: flex;
+  min-height: 100vh;
+}
+
+body.datenschutz-page .sidebar {
+  height: 100vh;
+}
+
+body.datenschutz-page .content {
+  flex-grow: 1;
+  padding: 40px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+body.datenschutz-page .centered-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+body.datenschutz-page .text-section h2,
+body.datenschutz-page .text-section h3,
+body.datenschutz-page .text-section h4 {
+  margin-top: 30px;
+}
+
+body.datenschutz-page .text-section p,
+body.datenschutz-page .text-section ul {
+  margin: 8px 0;
+}
+
+/* Guide-Boxen */
+.guide-boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 250px);
+  column-gap: 75px;
+  row-gap: 35px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.guide-box {
+  background-color: #f5f2eb;
+  border: 2px solid #f37021;
+  padding: 15px;
+  border-radius: 10px;
+  font-family: 'Anton', sans-serif;
+  font-size: 23px;
+  color: #016266;
+  cursor: pointer;
+  min-height: 50px;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.guide-box.cheatsheet .manual-offset,
+.guide-box.tools .manual-offset {
+  margin-top: 15px;
+}
+
+.guide-box:hover {
+  background-color: #f37021;
+  color: white;
+}
+
+.guide-box.tools {
+  text-decoration: none;
+}
+
+.guide-box.tools:hover {
+  text-decoration: none;
+}
+
+/* Cheatsheet */
+.cheatsheet-image {
+  width: 1400px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: 3px solid white;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+body.cheatsheet-page .centered-content {
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 2px solid #f37021;
+    text-align: center;
+    position: static;
+  }
+
+  .sidebar li {
+    display: inline-block;
+    margin: 5px;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .guide-boxes {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cheatsheet-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
   }
 }
 
-function highlightCurrentLink() {
-  let currentPage = window.location.pathname.split("/").pop();
-  if (currentPage === "") currentPage = "index.html";
+/* Download-Button */
+.download-button {
+  display: inline-block;
+  background-color: #f37021;
+  color: white;
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  padding: 16px 24px;
+  margin-top: 30px;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1.3;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
 
-  document.querySelectorAll(".sidebar li a").forEach(link => {
-    const href = link.getAttribute("href");
-    if (href === currentPage) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
-    }
-  });
+.download-button:hover {
+  background-color: #d95e12;
+}
+
+body.mini-guide-page .text-section {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto;
 }
