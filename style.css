@@ -337,3 +337,24 @@ html, body {
     min-height: 40px;
   }
 }
+/* Sichtbarkeit der Guide-Boxen je nach Gerät */
+.guide-boxes.mobile {
+  display: none;
+}
+
+.guide-boxes.desktop {
+  display: grid;
+}
+
+@media (max-width: 768px) {
+  .guide-boxes.mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .guide-boxes.desktop {
+    display: none;
+  }
+}
