@@ -1,57 +1,319 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Global Journey Hunter – Start</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
-</head>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500&display=swap');
 
-<body class="index-page">
-  <!-- Hamburger-Menü für Mobile -->
-  <button id="hamburger-button">☰</button>
+/* === GLOBAL === */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #d4cece, #0a767a);
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
 
-  <!-- Sidebar (dynamisch geladen per JS) -->
-  <div id="sidebar-placeholder"></div>
+/* === SIDEBAR === */
+.sidebar {
+  width: 250px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  box-sizing: border-box;
+  border-right: 2px solid #f37021;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-  <!-- Hauptbereich -->
-  <main class="content-wrapper">
-    <div class="content">
-      <div class="centered-content">
-        <img src="profilbild.jpg" alt="Profilbild" class="profile-image" />
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+}
 
-        <h1 class="headline-orange">WILLKOMMEN IM TEAM</h1>
-        <h1 class="headline-white">GLOBAL JOURNEY HUNTER</h1>
+.sidebar-logo {
+  width: 220px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+}
 
-        <div class="text-section">
-          <p>Einkaufen mit Verstand:</p>
-          <p>Geld sparen war noch nie so einfach!</p>
-          <p>Businessclass fliegen & weniger als Eco bezahlen!</p>
-        </div>
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
 
-        <div class="guide-boxes">
-          <a href="MINI-Meilenguide.html" class="guide-box" data-order-mobile="1">
-            <span class="box-title">GRATIS</span><br>Mini-Meilenguide
-          </a>
-          <a href="https://copecart.com/products/e24ca31f/checkout" class="guide-box" target="_blank" data-order-mobile="2">
-            <span class="box-title">DER</span><br>Paybackguide
-          </a>
-          <a href="https://copecart.com/products/d2c57f01/checkout" class="guide-box" target="_blank" data-order-mobile="3">
-            <span class="box-title">DER</span><br>Cashbackguide
-          </a>
-          <a href="der-meilenguide.html" class="guide-box" data-order-mobile="4">
-            <span class="box-title">DER</span><br>Meilenguide
-          </a>
-          <a href="https://linktr.ee/globaljourneyhunter" class="guide-box tools" target="_blank" data-order-mobile="5">
-            <div class="manual-offset">Tools</div>
-          </a>
-          <a href="cheatsheet.html" class="guide-box cheatsheet" data-order-mobile="6">
-            <div class="manual-offset">Cheatsheet</div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </main>
-</body>
-</html>
+.sidebar li {
+  margin: 10px 0;
+}
+
+.sidebar li a {
+  font-family: 'Anton', sans-serif;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  padding: 14px 12px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.sidebar li a:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #0a767a;
+}
+
+.sidebar li a.active {
+  background-color: #f37021;
+  color: white;
+  border-color: #f37021;
+}
+
+/* === CONTENT WRAPPER === */
+.content-wrapper {
+  flex-grow: 1;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* === CONTENT === */
+.content {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  text-align: center;
+}
+
+.centered-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #016266;
+  margin: 0 auto 20px auto;
+}
+
+.headline-orange {
+  font-family: 'Anton', sans-serif;
+  font-size: 50px;
+  color: #f37021;
+  margin: 0;
+}
+
+.headline-white {
+  font-family: 'Anton', sans-serif;
+  font-size: 42px;
+  color: white;
+  margin: 0 0 15px;
+}
+
+.text-section {
+  font-size: 16px;
+  line-height: 1.5;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.text-section p {
+  margin: 4px 0;
+}
+
+/* === GUIDE BOXES === */
+.guide-boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 40px;
+  row-gap: 35px;
+  justify-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.guide-box {
+  background-color: #f5f2eb;
+  border: 2px solid #f37021;
+  padding: 15px;
+  border-radius: 10px;
+  font-family: 'Anton', sans-serif;
+  font-size: 23px;
+  color: #016266;
+  cursor: pointer;
+  min-height: 50px;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%;
+  max-width: 250px;
+}
+
+.guide-box:hover {
+  background-color: #f37021;
+  color: white;
+}
+
+/* === HAMBURGER BUTTON === */
+#hamburger-button {
+  display: none;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1100;
+  font-size: 30px;
+  background-color: #f37021;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* === RESPONSIVE (MOBILE) === */
+@media (max-width: 768px) {
+  html, body {
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+  }
+
+  .content-wrapper {
+    height: auto;
+    overflow-y: auto;
+    padding-top: 70px;
+  }
+
+  #hamburger-button {
+    display: block;
+  }
+
+  .sidebar {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    z-index: 1000;
+    border-bottom: 2px solid #f37021;
+  }
+
+  .sidebar.open {
+    display: flex;
+  }
+
+  .sidebar li a {
+    color: #0a767a;
+  }
+
+  .content {
+    padding: 20px 10px;
+    align-items: center;
+    height: auto;
+  }
+
+  .centered-content {
+    padding: 0 10px;
+    margin-top: 20px;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .headline-orange,
+  .headline-white {
+    font-size: 26px;
+  }
+
+  .guide-boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .guide-box {
+    font-size: 18px;
+    padding: 10px;
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+/* === DESKTOP FIX: vertikal höher positionieren === */
+@media (min-width: 769px) {
+  html, body {
+    overflow: auto;
+  }
+
+  .content-wrapper {
+    width: calc(100vw - 250px);
+    margin-left: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* statt center */
+    height: 100vh;
+    box-sizing: border-box;
+    padding-top: 40px; /* Abstand von oben */
+  }
+
+  .content {
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .centered-content {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .guide-boxes {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    row-gap: 35px;
+    justify-items: center;
+    padding: 0;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .guide-box {
+    width: 100%;
+    max-width: 250px;
+  }
+}
