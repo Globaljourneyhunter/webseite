@@ -21,8 +21,7 @@ function highlightCurrentLink() {
   let currentPage = window.location.pathname.split("/").pop();
   if (currentPage === "") currentPage = "index.html";
 
-  const links = document.querySelectorAll(".sidebar li a");
-  links.forEach(link => {
+  document.querySelectorAll(".sidebar li a").forEach(link => {
     const href = link.getAttribute("href");
     if (href === currentPage) {
       link.classList.add("active");
