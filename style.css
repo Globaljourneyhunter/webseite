@@ -215,3 +215,105 @@ html, body {
     position: absolute;
     top: 60px;
     left: 0;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    z-index: 1000;
+    border-bottom: 2px solid #f37021;
+  }
+
+  .sidebar.open {
+    display: flex;
+  }
+
+  .sidebar li a {
+    color: #0a767a;
+  }
+
+  .content {
+    padding: 20px 10px;
+    align-items: center;
+    height: auto;
+  }
+
+  .centered-content {
+    padding: 0 10px;
+    margin-top: 20px;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .headline-orange,
+  .headline-white {
+    font-size: 26px;
+  }
+
+  .guide-boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .guide-box {
+    font-size: 18px;
+    padding: 10px;
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+/* === DESKTOP FIX: vertikal höher positionieren === */
+@media (min-width: 769px) {
+  html, body {
+    overflow: auto;
+  }
+
+  .content-wrapper {
+    width: calc(100vw - 250px);
+    margin-left: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* statt center */
+    height: 100vh;
+    box-sizing: border-box;
+    padding-top: 40px; /* Abstand von oben */
+  }
+
+  .content {
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .centered-content {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .guide-boxes {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    row-gap: 35px;
+    justify-items: center;
+    padding: 0;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .guide-box {
+    width: 100%;
+    max-width: 250px;
+  }
+}
