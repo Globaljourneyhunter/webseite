@@ -8,10 +8,9 @@ async function loadSidebar() {
     const html = await res.text();
     const sidebarPlaceholder = document.getElementById("sidebar-placeholder");
 
-    if (sidebarPlaceholder && !sidebarPlaceholder.innerHTML.trim()) {
+    if (sidebarPlaceholder) {
       sidebarPlaceholder.innerHTML = html;
       highlightCurrentLink();
-      setupHamburger();
     }
   } catch (error) {
     console.error("Sidebar konnte nicht geladen werden:", error);
@@ -22,7 +21,8 @@ function highlightCurrentLink() {
   let currentPage = window.location.pathname.split("/").pop();
   if (currentPage === "") currentPage = "index.html";
 
-  document.querySelectorAll(".sidebar li a").forEach(link => {
+  const links = document.querySelectorAll(".sidebar li a");
+  links.forEach(link => {
     const href = link.getAttribute("href");
     if (href === currentPage) {
       link.classList.add("active");
@@ -30,15 +30,4 @@ function highlightCurrentLink() {
       link.classList.remove("active");
     }
   });
-}
-
-function setupHamburger() {
-  const hamburger = document.getElementById("hamburger-button");
-  const sidebar = document.querySelector(".sidebar");
-
-  if (hamburger && sidebar) {
-    hamburger.addEventListener("click", () => {
-      sidebar.classList.toggle("open");
-    });
-  }
 }
