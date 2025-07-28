@@ -484,3 +484,34 @@ body.mini-guide-page #sidebar-placeholder {
     font-size: 36px;
   }
 }
+@media (max-width: 768px) {
+  body.cheatsheet-page .layout-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+
+  body.cheatsheet-page .content {
+    padding: 20px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  body.cheatsheet-page .centered-content {
+    padding: 0 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cheatsheet-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+}
