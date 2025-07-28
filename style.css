@@ -269,51 +269,71 @@ html, body {
   }
 }
 
-/* === DESKTOP FIX: vertikal höher positionieren === */
+/* === DESKTOP OVERRIDES === */
+/* === DESKTOP OVERRIDES === */
 @media (min-width: 769px) {
   html, body {
-    overflow: auto;
+    overflow: hidden;
   }
 
   .content-wrapper {
+    margin-left: 0;
     width: calc(100vw - 250px);
-    margin-left: 250px;
+    height: 100vh;
+    padding-top: 20px;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* statt center */
-    height: 100vh;
-    box-sizing: border-box;
-    padding-top: 40px; /* Abstand von oben */
+    align-items: flex-start;
+    overflow: hidden;
   }
 
   .content {
-    width: 100%;
-    max-width: 1000px;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    max-width: 950px;
+    padding: 10px;
+    text-align: center;
+    overflow: hidden;
   }
 
   .centered-content {
-    max-width: 900px;
-    width: 100%;
+    max-width: 880px;
     margin: 0 auto;
+  }
+
+  .profile-image {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 10px;
+  }
+
+  .headline-orange {
+    font-size: 36px;
+    margin-bottom: 5px;
+  }
+
+  .headline-white {
+    font-size: 34px;
+    margin-bottom: 10px;
+  }
+
+  .text-section {
+    font-size: 16px;
+    margin-bottom: 20px;
   }
 
   .guide-boxes {
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 40px;
-    row-gap: 35px;
+    column-gap: 50px;  /* vorher 25px */
+    row-gap: 40px;     /* vorher 20px */
     justify-items: center;
     padding: 0;
-    max-width: 900px;
+    max-width: 880px;
     margin: 0 auto;
   }
 
   .guide-box {
-    width: 100%;
-    max-width: 250px;
+    font-size: 18px;
+    padding: 10px;
+    max-width: 220px;
+    min-height: 40px;
   }
 }
