@@ -6,20 +6,30 @@
   <title>Global Journey Hunter – Start</title>
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
+  <style>
+    /* Sichtbarkeit je nach Viewport */
+    .guide-boxes.mobile { display: none; }
+    .guide-boxes.desktop { display: grid; }
+
+    @media (max-width: 768px) {
+      .guide-boxes.mobile { display: flex; flex-direction: column; gap: 20px; }
+      .guide-boxes.desktop { display: none; }
+    }
+  </style>
 </head>
 
 <body class="index-page">
   <!-- Hamburger-Menü für Mobile -->
   <button id="hamburger-button">☰</button>
 
-  <!-- Sidebar (dynamisch geladen per JS) -->
+  <!-- Sidebar wird per JS geladen -->
   <div id="sidebar-placeholder"></div>
 
-  <!-- Hauptbereich -->
+  <!-- Hauptinhalt -->
   <main class="content-wrapper">
     <div class="content">
       <div class="centered-content">
-        <img src="profilbild.jpg" alt="Profilbild" class="profile-image" />
+        <img src="profilbild.jpg" alt="Profilbild von Global Journey Hunter" class="profile-image" />
 
         <h1 class="headline-orange">WILLKOMMEN IM TEAM</h1>
         <h1 class="headline-white">GLOBAL JOURNEY HUNTER</h1>
@@ -30,35 +40,52 @@
           <p>Businessclass fliegen & weniger als Eco bezahlen!</p>
         </div>
 
-        <div class="guide-boxes">
-          <a href="MINI-Meilenguide.html" class="guide-box" data-order-mobile="1">
+        <!-- ✅ DESKTOP-REIHENFOLGE -->
+        <div class="guide-boxes desktop">
+          <a href="MINI-Meilenguide.html" class="guide-box">
             <span class="box-title">GRATIS</span><br>Mini-Meilenguide
           </a>
-          <a href="https://copecart.com/products/e24ca31f/checkout" class="guide-box" target="_blank" data-order-mobile="2">
+          <a href="https://copecart.com/products/e24ca31f/checkout" class="guide-box" target="_blank">
             <span class="box-title">DER</span><br>Paybackguide
           </a>
-          
-          <!-- 👉 Desktop: TOOLS statt Cashbackguide -->
-          <a href="https://linktr.ee/globaljourneyhunter" class="guide-box tools" target="_blank" data-order-mobile="5">
+          <a href="https://linktr.ee/globaljourneyhunter" class="guide-box tools" target="_blank">
             <div class="manual-offset">Tools</div>
           </a>
-
-          <a href="der-meilenguide.html" class="guide-box" data-order-mobile="4">
+          <a href="der-meilenguide.html" class="guide-box">
             <span class="box-title">DER</span><br>Meilenguide
           </a>
-          
-          <!-- 👉 Desktop: CASHBACKGUIDE kommt hier unten -->
-          <a href="https://copecart.com/products/d2c57f01/checkout" class="guide-box" target="_blank" data-order-mobile="3">
+          <a href="https://copecart.com/products/d2c57f01/checkout" class="guide-box" target="_blank">
             <span class="box-title">DER</span><br>Cashbackguide
           </a>
-
-          <a href="cheatsheet.html" class="guide-box cheatsheet" data-order-mobile="6">
+          <a href="cheatsheet.html" class="guide-box cheatsheet">
             <div class="manual-offset">Cheatsheet</div>
           </a>
         </div>
+
+        <!-- ✅ MOBILE-REIHENFOLGE -->
+        <div class="guide-boxes mobile">
+          <a href="MINI-Meilenguide.html" class="guide-box">
+            <span class="box-title">GRATIS</span><br>Mini-Meilenguide
+          </a>
+          <a href="https://copecart.com/products/e24ca31f/checkout" class="guide-box" target="_blank">
+            <span class="box-title">DER</span><br>Paybackguide
+          </a>
+          <a href="https://copecart.com/products/d2c57f01/checkout" class="guide-box" target="_blank">
+            <span class="box-title">DER</span><br>Cashbackguide
+          </a>
+          <a href="der-meilenguide.html" class="guide-box">
+            <span class="box-title">DER</span><br>Meilenguide
+          </a>
+          <a href="https://linktr.ee/globaljourneyhunter" class="guide-box tools" target="_blank">
+            <div class="manual-offset">Tools</div>
+          </a>
+          <a href="cheatsheet.html" class="guide-box cheatsheet">
+            <div class="manual-offset">Cheatsheet</div>
+          </a>
+        </div>
+
       </div>
     </div>
   </main>
 </body>
 </html>
-
