@@ -234,3 +234,33 @@ body.index-page {
     height: 140px;
   }
 }
+/* === DESKTOP FIX: Inhalt zentriert sichtbar neben Sidebar === */
+@media (min-width: 769px) {
+  .main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    padding: 0 40px; /* etwas Innenabstand */
+  }
+
+  .centered-content {
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+  }
+
+  .guide-boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    justify-items: center;
+    margin-top: 30px;
+  }
+
+  .guide-box {
+    width: 250px;
+  }
+}
