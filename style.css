@@ -88,6 +88,7 @@ html, body {
   overflow: hidden;
 }
 
+/* === CONTENT === */
 .content {
   width: 100%;
   max-width: 1000px;
@@ -142,10 +143,15 @@ html, body {
 /* === GUIDE BOXES === */
 .guide-boxes {
   display: grid;
-  grid-template-columns: repeat(3, 250px);
-  column-gap: 75px;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 40px;
   row-gap: 35px;
-  justify-content: center;
+  justify-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .guide-box {
@@ -160,6 +166,8 @@ html, body {
   min-height: 50px;
   text-align: center;
   transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%;
+  max-width: 250px;
 }
 
 .guide-box:hover {
@@ -227,6 +235,7 @@ html, body {
   .content {
     padding: 20px 10px;
     align-items: center;
+    height: auto;
   }
 
   .centered-content {
@@ -253,5 +262,54 @@ html, body {
   .guide-box {
     font-size: 18px;
     padding: 10px;
+  }
+}
+
+/* === DESKTOP FIX: Manuell optisch zentriert === */
+@media (min-width: 769px) {
+  html, body {
+    overflow: auto;
+  }
+
+  .content-wrapper {
+    width: calc(100vw - 250px);
+    margin-left: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+    transform: translateX(-100px); /* ← Angepasst für perfekte optische Mitte */
+  }
+
+  .content {
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .centered-content {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .guide-boxes {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    row-gap: 35px;
+    justify-items: center;
+    padding: 0;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .guide-box {
+    width: 100%;
+    max-width: 250px;
   }
 }
