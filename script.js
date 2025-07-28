@@ -11,6 +11,7 @@ async function loadSidebar() {
     if (sidebarPlaceholder) {
       sidebarPlaceholder.innerHTML = html;
       highlightCurrentLink();
+      setupHamburger();
     }
   } catch (error) {
     console.error("Sidebar konnte nicht geladen werden:", error);
@@ -29,4 +30,15 @@ function highlightCurrentLink() {
       link.classList.remove("active");
     }
   });
+}
+
+function setupHamburger() {
+  const hamburger = document.getElementById("hamburger-button");
+  const sidebar = document.querySelector(".sidebar");
+
+  if (hamburger && sidebar) {
+    hamburger.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+    });
+  }
 }
