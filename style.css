@@ -420,3 +420,67 @@ body.cheatsheet-page .centered-content {
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
+/* ==== Mini-Guide: Coming Soon Seite ==== */
+body.mini-guide-page {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #d4cece, #0a767a);
+  height: 100vh;
+  overflow: hidden;
+}
+
+body.mini-guide-page .layout-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Sidebar wird durch JS geladen – Breite einrechnen */
+body.mini-guide-page #sidebar-placeholder {
+  width: 250px; /* Fester Platz für Sidebar */
+  flex-shrink: 0;
+}
+
+/* Hauptbereich */
+.mini-guide-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.mini-guide-center {
+  max-width: 800px;
+  width: 100%;
+}
+
+.mini-guide-page .headline-orange {
+  font-family: 'Anton', sans-serif;
+  font-size: 60px;
+  color: #f37021;
+  margin: 0;
+}
+
+/* Mobil */
+@media (max-width: 768px) {
+  body.mini-guide-page .layout-wrapper {
+    flex-direction: column;
+  }
+
+  body.mini-guide-page #sidebar-placeholder {
+    width: 100%;
+    height: auto;
+  }
+
+  .mini-guide-content {
+    padding: 30px 20px;
+    min-height: 100vh;
+  }
+
+  .mini-guide-page .headline-orange {
+    font-size: 36px;
+  }
+}
