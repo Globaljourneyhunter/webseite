@@ -218,7 +218,7 @@ html, body {
     width: 100%;
     height: auto;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.95);
+    background: linear-gradient(to bottom, #d4cece, #0a767a);
     padding: 20px;
     z-index: 1000;
     border-bottom: 2px solid #f37021;
@@ -229,6 +229,21 @@ html, body {
   }
 
   .sidebar li a {
+    font-family: 'Anton', sans-serif;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    padding: 14px 12px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    display: block;
+    text-align: center;
+  }
+
+  .sidebar li a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
     color: #0a767a;
   }
 
