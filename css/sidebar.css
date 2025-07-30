@@ -74,23 +74,32 @@
   .sidebar.open {
     display: flex;
   }
-}
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 28px;
-  color: white;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
 
-@media (max-width: 768px) {
-  .hamburger {
+  #hamburger-button {
     display: block;
     position: fixed;
     top: 20px;
     left: 20px;
-    z-index: 9999;
+    font-size: 28px;
+    background-color: #f37021;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    z-index: 1001;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+  }
+
+  #hamburger-button:hover {
+    background-color: #d85c1a;
+  }
+}
+
+/* Desktop: Hamburger ausblenden */
+@media (min-width: 769px) {
+  #hamburger-button {
+    display: none;
   }
 }
