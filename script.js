@@ -1,5 +1,10 @@
 document.addEventListener("DOMContentLoaded", async () => {
   await loadSidebar();
+
+  // Hamburger Setup direkt aufrufen (für den Fall, dass HTML-Button bereits existiert)
+  if (window.innerWidth <= 768) {
+    setupHamburger();
+  }
 });
 
 async function loadSidebar() {
@@ -12,10 +17,7 @@ async function loadSidebar() {
       sidebarPlaceholder.innerHTML = html;
       highlightCurrentLink();
 
-      // Hamburger nur aktivieren bei mobiler Breite
-      if (window.innerWidth <= 768) {
-        setupHamburger();
-      }
+      // setupHamburger wird bereits oben bei DOMContentLoaded aufgerufen
     }
   } catch (error) {
     console.error("Sidebar konnte nicht geladen werden:", error);
@@ -37,19 +39,33 @@ function highlightCurrentLink() {
 }
 
 function setupHamburger() {
-  const observer = new MutationObserver(() => {
-    const hamburger = document.getElementById("hamburger-button");
-    const sidebar = document.querySelector(".sidebar");
+  const hamburger = document.getElementById("hamburger-button");
+  const sidebar = document.querySelector(".sidebar");
 
-    if (hamburger && sidebar) {
-      hamburger.addEventListener("click", () => {
-        sidebar.classList.toggle("open");
+  if (hamburger && sidebar) {
+    hamburger.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+    });
+  } else {
+    // Falls Sidebar dynamisch nachgeladen wird
+    const observer = new MutationObserver(() => {
+      const hamburger = document.getElementById("hamburger-button");
+      const sidebar = document.querySelector(".sidebar");
+
+      if (hamburger && sidebar) {
+        hamburger.addEventListener("click", () => {
+          sidebar.classList.toggle("open");
+        });
+        observer.disconnect(); // Stoppt das Beobachten, wenn einmal verbunden
+      }
+    });
+
+    const placeholder = document.getElementById("sidebar-placeholder");
+    if (placeholder) {
+      observer.observe(placeholder, {
+        childList: true,
+        subtree: true,
       });
     }
-  });
-
-  observer.observe(document.getElementById("sidebar-placeholder"), {
-    childList: true,
-    subtree: true
-  });
+  }
 }
