@@ -15,6 +15,15 @@
 
   #hamburger-button {
     display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: white;
+    z-index: 1001;
+    cursor: pointer;
   }
 
   .sidebar {
@@ -77,8 +86,10 @@
     height: auto;
     overflow-y: auto;
   }
-}  <-- HIER ist die Klammer ZU FRÜH!
 
+  #hamburger-button {
+    display: none; /* <- HIER wird es korrekt versteckt auf Desktop */
+  }
 
   .content {
     display: flex;
@@ -99,36 +110,34 @@
   }
 
   .guide-boxes {
-  display: grid;
-  grid-template-columns: repeat(3, 240px);  /* Feste 3 Spalten mit Breite */
-  gap: 35px;
-  justify-content: center;                 /* zentriert sie horizontal */
-  width: 100%;
-  max-width: 880px;
-  margin: 0 auto;
-}
+    display: grid;
+    grid-template-columns: repeat(3, 240px);  /* Feste 3 Spalten mit Breite */
+    gap: 35px;
+    justify-content: center;
+    width: 100%;
+    max-width: 880px;
+    margin: 0 auto;
+  }
 
-
- .guide-box {
-  width: 240px;
-  height: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px; /* reduziert Innenabstand */
-  font-size: 20px;
-  background-color: #f5f2eb;
-  border: 2px solid #f37021;
-  border-radius: 10px;
-  color: #016266;
-  text-align: center;
-  font-family: 'Anton', sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  line-height: 1; /* Zeilenabstand reduziert */
-  gap: 2px; /* Abstand zwischen Textzeilen */
-}
-
+  .guide-box {
+    width: 240px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #f5f2eb;
+    border: 2px solid #f37021;
+    border-radius: 10px;
+    color: #016266;
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1;
+    gap: 2px;
+  }
 
   .guide-box:hover {
     background-color: #f37021;
