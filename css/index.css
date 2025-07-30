@@ -97,7 +97,7 @@
   transition: background-color 0.3s ease, color 0.3s ease;
   line-height: 1.2;
   gap: 2px;
-  text-decoration: none; /* NEU: keine Unterstreichung */
+  text-decoration: none; /* keine Unterstreichung */
 }
 
 .guide-box:hover {
@@ -158,11 +158,10 @@
   }
 
   .guide-box {
-    max-width: 300px;
-    width: 100%;
+    width: 240px;
+    height: 80px;
     font-size: 18px;
     padding: 10px;
-    height: auto;
-    text-decoration: none; /* NEU: keine Unterstreichung */
+    text-decoration: none; /* keine Unterstreichung */
   }
 }
