@@ -165,3 +165,25 @@
     text-decoration: none; /* keine Unterstreichung */
   }
 }
+
+/* === HAMBURGER BUTTON === */
+#hamburger-button {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #hamburger-button {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+    background-color: #f37021;
+    color: white;
+    border: none;
+    font-size: 28px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+}
