@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500&display=swap');
+
+/* === GLOBAL === */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #d4cece, #0a767a);
+  color: white;
+  height: auto;             /* <- HIER ÄNDERN */
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+

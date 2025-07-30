@@ -1,0 +1,88 @@
+/* =====================
+   Datei: css/der-meilenguide.css
+   Beschreibung: Nur für der-meilenguide.html
+====================== */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #d4cece, #0a767a);
+  color: white;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body.mini-guide-page {
+  display: flex;
+}
+
+/* Sidebar bleibt links fix */
+#sidebar-placeholder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  z-index: 100;
+}
+
+/* Rechter Bereich scrollt */
+.layout-wrapper {
+  margin-left: 250px;
+  flex-grow: 1;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+/* Hauptinhalt */
+.content {
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+}
+
+.centered-content {
+  text-align: center;
+}
+
+/* Coming Soon Bereich */
+.coming-soon-section h1 {
+  font-family: 'Anton', sans-serif;
+  font-size: 42px;
+  color: #f37021;
+  text-transform: uppercase;
+}
+
+/* Mobil-Ansicht */
+@media (max-width: 768px) {
+  body.mini-guide-page {
+    display: block;
+  }
+
+  #sidebar-placeholder {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+
+  .layout-wrapper {
+    margin-left: 0;
+    padding: 20px;
+    flex-direction: column;
+  }
+
+  .content {
+    padding: 0;
+  }
+
+  .coming-soon-section h1 {
+    font-size: 28px;
+    padding: 20px 10px;
+  }
+}

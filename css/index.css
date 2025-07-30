@@ -1,0 +1,168 @@
+/* =====================
+   Datei: css/index.css
+   Beschreibung: Nur für index.html
+====================== */
+
+/* === CONTENT WRAPPER === */
+.content-wrapper {
+  flex-grow: 1;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* === CONTENT === */
+.content {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  text-align: center;
+}
+
+.centered-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* === PROFILBILD === */
+.profile-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #016266;
+  margin: 0 auto 20px auto;
+}
+
+/* === HEADLINES === */
+.headline-orange {
+  font-family: 'Anton', sans-serif;
+  font-size: 36px;
+  color: #f37021;
+  margin: 0 0 5px 0;
+}
+
+.headline-white {
+  font-family: 'Anton', sans-serif;
+  font-size: 32px;
+  color: white;
+  margin: 0 0 15px;
+}
+
+/* === TEXT === */
+.text-section {
+  font-size: 16px;
+  line-height: 1.5;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.text-section p {
+  margin: 4px 0;
+}
+
+/* === GUIDE BOXES DESKTOP === */
+.guide-boxes.desktop {
+  display: grid;
+  grid-template-columns: repeat(3, 240px);
+  gap: 35px;
+  justify-content: center;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.guide-box {
+  width: 240px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 20px;
+  background-color: #f5f2eb;
+  border: 2px solid #f37021;
+  border-radius: 10px;
+  color: #016266;
+  text-align: center;
+  font-family: 'Anton', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.2;
+  gap: 2px;
+  text-decoration: none; /* NEU: keine Unterstreichung */
+}
+
+.guide-box:hover {
+  background-color: #f37021;
+  color: white;
+}
+
+/* === MANUAL OFFSET TEXTE (für Tools/Cheatsheet etc.) === */
+.manual-offset {
+  font-family: 'Anton', sans-serif;
+  font-size: 18px;
+  line-height: 1.1;
+}
+
+/* === GUIDE BOXES MOBILE === */
+.guide-boxes.mobile {
+  display: none;
+}
+
+/* === RESPONSIVE DESKTOP === */
+@media (min-width: 769px) {
+  .content-wrapper {
+    margin-left: 250px; /* Abstand für fixe Sidebar */
+    width: calc(100% - 250px);
+  }
+}
+
+/* === RESPONSIVE MOBILE === */
+@media (max-width: 768px) {
+  /* Profilbild kleiner */
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* Headlines kleiner */
+  .headline-orange {
+    font-size: 26px;
+  }
+
+  .headline-white {
+    font-size: 24px;
+  }
+
+  /* Desktop-Boxen ausblenden */
+  .guide-boxes.desktop {
+    display: none;
+  }
+
+  /* Mobile-Boxen einblenden */
+  .guide-boxes.mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .guide-box {
+    max-width: 300px;
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
+    height: auto;
+    text-decoration: none; /* NEU: keine Unterstreichung */
+  }
+}

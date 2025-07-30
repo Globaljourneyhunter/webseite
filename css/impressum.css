@@ -1,0 +1,112 @@
+/* ===================== 
+   Datei: css/impressum.css
+   Beschreibung: Nur für impressum.html
+====================== */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #d4cece, #0a767a);
+  color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body.impressum-page {
+  display: flex;
+}
+
+/* Sidebar bleibt links fix */
+#sidebar-placeholder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  z-index: 100;
+}
+
+/* Hauptinhalt */
+.layout-wrapper {
+  margin-left: 250px;
+  flex-grow: 1;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+}
+
+/* Inhalt */
+.content {
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+}
+
+.centered-content {
+  text-align: left;
+}
+
+.text-section {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.text-section h2 {
+  color: #f37021;
+  font-family: 'Anton', sans-serif;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.text-section h3 {
+  color: white;
+  font-family: 'Anton', sans-serif;
+  font-size: 24px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.text-section a {
+  color: #f37021;
+  text-decoration: underline;
+}
+
+/* === Responsive (Mobil) === */
+@media (max-width: 768px) {
+  body.impressum-page {
+    display: block;
+  }
+
+  #sidebar-placeholder {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+
+  .layout-wrapper {
+    margin-left: 0;
+    padding: 20px;
+    flex-direction: column;
+  }
+
+  .content {
+    padding: 0;
+  }
+
+  .text-section {
+    font-size: 15px;
+  }
+
+  .text-section h2 {
+    font-size: 26px;
+  }
+
+  .text-section h3 {
+    font-size: 20px;
+  }
+}
