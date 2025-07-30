@@ -13,18 +13,23 @@
     padding-top: 70px;
   }
 
-  #hamburger-button {
-    display: block;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    font-size: 28px;
-    background: none;
-    border: none;
-    color: white;
-    z-index: 1001;
-    cursor: pointer;
-  }
+#hamburger-button {
+  display: block;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 28px;
+  background-color: #f37021;   /* ORANGE HINTERGRUND */
+  border: none;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  z-index: 1001;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
 
   .sidebar {
     display: none;
