@@ -11,7 +11,11 @@ async function loadSidebar() {
     if (sidebarPlaceholder) {
       sidebarPlaceholder.innerHTML = html;
       highlightCurrentLink();
-      setupHamburger();
+
+      // Hamburger nur aktivieren bei mobiler Breite
+      if (window.innerWidth <= 768) {
+        setupHamburger();
+      }
     }
   } catch (error) {
     console.error("Sidebar konnte nicht geladen werden:", error);
@@ -33,12 +37,19 @@ function highlightCurrentLink() {
 }
 
 function setupHamburger() {
-  const hamburger = document.getElementById("hamburger-button");
-  const sidebar = document.querySelector(".sidebar");
+  const observer = new MutationObserver(() => {
+    const hamburger = document.getElementById("hamburger-button");
+    const sidebar = document.querySelector(".sidebar");
 
-  if (hamburger && sidebar) {
-    hamburger.addEventListener("click", () => {
-      sidebar.classList.toggle("open");
-    });
-  }
+    if (hamburger && sidebar) {
+      hamburger.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+      });
+    }
+  });
+
+  observer.observe(document.getElementById("sidebar-placeholder"), {
+    childList: true,
+    subtree: true
+  });
 }
