@@ -4,43 +4,50 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Global Journey Hunter – Start</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
-  <style>
-    /* Sichtbarkeit je nach Viewport */
-    .guide-boxes.mobile { display: none; }
-    .guide-boxes.desktop { display: grid; }
 
-    @media (max-width: 768px) {
-      .guide-boxes.mobile { display: flex; flex-direction: column; gap: 20px; }
-      .guide-boxes.desktop { display: none; }
-    }
-  </style>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Globale Styles -->
+  <link rel="stylesheet" href="css/global.css" />
+
+  <!-- Seiten-Spezifische Styles -->
+  <link rel="stylesheet" href="css/index.css" />
+
+  <!-- Sidebar Styles -->
+  <link rel="stylesheet" href="css/sidebar.css" />
+
+  <!-- Responsive Styles -->
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <!-- JavaScript -->
+  <script src="script.js" defer></script>
 </head>
 
 <body class="index-page">
-  <!-- Hamburger-Menü für Mobile -->
-  <button id="hamburger-button">☰</button>
 
-  <!-- Sidebar wird per JS geladen -->
+  <!-- Sidebar wird per JS geladen oder direkt eingeblendet -->
   <div id="sidebar-placeholder"></div>
 
   <!-- Hauptinhalt -->
   <main class="content-wrapper">
     <div class="content">
       <div class="centered-content">
+        <!-- Profilbild -->
         <img src="profilbild.jpg" alt="Profilbild von Global Journey Hunter" class="profile-image" />
 
+        <!-- Headlines -->
         <h1 class="headline-orange">WILLKOMMEN IM TEAM</h1>
         <h1 class="headline-white">GLOBAL JOURNEY HUNTER</h1>
 
+        <!-- Textabschnitt -->
         <div class="text-section">
           <p>Einkaufen mit Verstand:</p>
           <p>Geld sparen war noch nie so einfach!</p>
           <p>Businessclass fliegen & weniger als Eco bezahlen!</p>
         </div>
 
-        <!-- ✅ DESKTOP-REIHENFOLGE -->
+        <!-- Guide-Boxen für Desktop -->
         <div class="guide-boxes desktop">
           <a href="MINI-Meilenguide.html" class="guide-box">
             <span class="box-title">GRATIS</span><br>Mini-Meilenguide
@@ -62,7 +69,7 @@
           </a>
         </div>
 
-        <!-- ✅ MOBILE-REIHENFOLGE -->
+        <!-- Guide-Boxen für Mobile -->
         <div class="guide-boxes mobile">
           <a href="MINI-Meilenguide.html" class="guide-box">
             <span class="box-title">GRATIS</span><br>Mini-Meilenguide
@@ -83,7 +90,6 @@
             <div class="manual-offset">Cheatsheet</div>
           </a>
         </div>
-
       </div>
     </div>
   </main>
