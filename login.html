@@ -137,30 +137,55 @@
       font-family: 'Poppins', sans-serif;
     }
 
+    /* === MOBILE ANPASSUNGEN === */
     @media (max-width: 900px) {
+      body {
+        padding: 20px;
+      }
+
       main {
         flex-direction: column;
         align-items: center;
-        margin-top: 40px;
+        margin-top: 20px;
       }
+
       .left, .right {
-        width: 90%;
+        width: 100%;
         margin: 0 0 30px 0;
       }
+
       header {
         font-size: 36px;
+        margin-bottom: 40px;
       }
+
       header .team {
         font-size: 60px;
       }
+
       .right h2 {
         font-size: 36px;
       }
+
+      .left {
+        margin: 0;
+        font-size: 16px;
+      }
+
+      .left p:first-child {
+        font-size: 22px;
+      }
+
       .ready-logo {
         flex-direction: column;
         align-items: center;
         gap: 10px;
         text-align: center;
+      }
+
+      .ready-logo img {
+        max-width: 100%;
+        height: auto;
       }
     }
   </style>
@@ -209,10 +234,7 @@
       const password = document.getElementById('password').value;
       const errorMessage = document.getElementById('error-message');
 
-      const { data, error } = await supabaseClient.auth.signInWithPassword({
-        email,
-        password
-      });
+      const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
 
       if (error) {
         errorMessage.textContent = "Fehler beim Login: " + error.message;
