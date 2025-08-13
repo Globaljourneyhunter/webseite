@@ -1,0 +1,142 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #d4cece, #0a767a);
+  color: white;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body.mini-guide-page {
+  display: flex;
+}
+
+/* Sidebar bleibt links fix */
+#sidebar-placeholder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  z-index: 100;
+}
+
+/* Rechter Bereich scrollt */
+.layout-wrapper {
+  margin-left: 250px;
+  flex-grow: 1;
+  min-height: 100vh;         
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px;
+}
+
+/* Inhaltsbereich */
+.content {
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+}
+
+.centered-content {
+  text-align: left;
+}
+
+.text-section {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Nur h2 orange */
+.text-section h2 {
+  color: #f37021;
+  font-family: 'Anton', sans-serif;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* Unterüberschriften weiß */
+.text-section h3 {
+  color: white;
+  font-family: 'Anton', sans-serif;
+  font-size: 24px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.text-section a {
+  color: #f37021;
+  text-decoration: none; /* <- NICHT unterstrichen */
+}
+
+/* Download-Button */
+.download-button {
+  display: inline-block;
+  background-color: #f37021;
+  color: white !important;
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  padding: 16px 28px;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none; /* <- NICHT unterstrichen */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  line-height: 1.4;
+  white-space: normal;
+  max-width: 300px;
+}
+
+.download-button:hover {
+  background-color: #d85c1a;
+  color: white;
+}
+
+/* === Mobil-Ansicht === */
+@media (max-width: 768px) {
+  body.mini-guide-page {
+    display: block;
+  }
+
+  #sidebar-placeholder {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+
+  .layout-wrapper {
+    margin-left: 0;
+    padding: 20px;
+    flex-direction: column;
+  }
+
+  .content {
+    padding: 0;
+  }
+
+  .text-section {
+    font-size: 15px;
+  }
+
+  .text-section h2 {
+    font-size: 26px;
+  }
+
+  .text-section h3 {
+    font-size: 20px;
+  }
+
+  .download-button {
+    width: 100%;
+    font-size: 18px;
+    padding: 16px;
+    color: white !important;
+    text-decoration: none; /* <- auch mobil kein Unterstrich */
+  }
+}
